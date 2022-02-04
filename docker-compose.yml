@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+    nginx:
+        build: ./nginx
+        restart: always
+        ports:
+            - "20080:80"
+        volumes:
+            - "./www:/www"
+            - "./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
+            - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    php-fpm:
+        build: ./php-fpm
+        restart: always
+        volumes:
+            - "./www:/www"
+            - "./php-fpm/php.ini:/usr/local/etc/php/php.ini"
+    mysql:
+        build: ./mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+            MYSQL_DATABASE: "www-data"
+            MYSQL_USER: "www-data"
+            MYSQL_PASSWORD: "123456"
