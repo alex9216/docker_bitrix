@@ -18,6 +18,8 @@ services:
     mysql:
         build: ./mysql
         restart: always
+        volumes:
+            - "./mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
         environment:
             MYSQL_ROOT_PASSWORD: 123456
             MYSQL_DATABASE: "www-data"
