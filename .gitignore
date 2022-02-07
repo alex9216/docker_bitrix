@@ -1,1 +1,2 @@
-www/html/**
+/www/*/html/**
+!/www/*/html/.gitignore
