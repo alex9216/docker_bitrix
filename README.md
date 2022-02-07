@@ -1,4 +1,3 @@
-# docker_bitrix
 1. git clone https://github.com/alex9216/docker_bitrix.git
 2. Place bitrix install sources to www/html subfolder
 3. cd docker_bitrix root folder
