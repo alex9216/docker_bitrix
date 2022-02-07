@@ -18,6 +18,9 @@ services:
     mysql:
         build: ./mysql
         restart: always
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - "./mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
         environment:
             MYSQL_ROOT_PASSWORD: 123456
             MYSQL_DATABASE: "www-data"
