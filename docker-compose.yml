@@ -10,7 +10,6 @@ services:
             - "./www:/www"
             - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "./nginx/conf.d/bitrix.conf:/etc/nginx/conf.d/bitrix.conf"
-            - "./nginx/conf.d/laravel.conf:/etc/nginx/conf.d/laravel.conf"
     php-fpm:
         build: ./php-fpm
         restart: always
@@ -22,7 +21,6 @@ services:
         restart: always
         volumes:
             - "./mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
-            - "./mysql/conf.d/laravel.conf:/etc/mysql/conf.d/laravel.conf"
         environment:
             MYSQL_ROOT_PASSWORD: 123456
             MYSQL_DATABASE: "www-data"
