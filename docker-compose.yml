@@ -5,7 +5,6 @@ services:
         restart: always
         ports:
             - "20000:20000"
-            - "20001:20001"
         volumes:
             - "./www:/www"
             - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
