@@ -1,4 +1,2 @@
-/www/bitrix/public/**
-/www/laravel/public/**
-!/www/bitrix/public/index.php
-!/www/laravel/public/index.php
+/www/public/**
+!/www/public/index.php
