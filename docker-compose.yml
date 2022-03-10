@@ -1,28 +1,26 @@
 version: "3.7"
 services:
     nginx:
-        build: ./nginx
+        build: ./config/nginx
         restart: always
         ports:
             - "20000:20000"
         volumes:
             - "./www:/www"
-            - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
-            - "./nginx/conf.d/bitrix.conf:/etc/nginx/conf.d/bitrix.conf"
+            - "./config/nginx/nginx.conf:/etc/nginx/nginx.conf"
+            - "./config/nginx/conf.d/bitrix.conf:/etc/nginx/conf.d/bitrix.conf"
     php-fpm:
-        build: ./php-fpm
+        build: ./config/php-fpm
         restart: always
         volumes:
             - "./www:/www"
-            - "./php-fpm/php/php.ini:/usr/local/etc/php/php.ini"
-            - "./php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf"
+            - "./config/php-fpm/php/php.ini:/usr/local/etc/php/php.ini"
+            - "./config/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf"
     mysql:
-        build: ./mysql
+        build: ./config/mysql
         restart: always
         volumes:
-            - "./mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
+            - "./config/mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
         environment:
             MYSQL_ROOT_PASSWORD: 123456
-            MYSQL_DATABASE: "www-data"
-            MYSQL_USER: "www-data"
-            MYSQL_PASSWORD: "123456"
+            MYSQL_DATABASE: "bitrix"
