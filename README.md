@@ -5,6 +5,6 @@
 5. docker-compose up -d
 6. After build has finished open url http://localhost:20000 in your browser and install bitrix with this database settings:
   - host - mysql
-  - database - www-data
-  - username - www-data
+  - database - bitrix
+  - username - root
   - password - 123456
