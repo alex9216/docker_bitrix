@@ -4,7 +4,7 @@ services:
         build: ./config/nginx
         restart: always
         ports:
-            - "20100:80"
+            - "20101:80"
         volumes:
             - "./www:/www"
             - "./config/nginx/nginx.conf:/etc/nginx/nginx.conf"
@@ -20,7 +20,7 @@ services:
         build: ./config/mysql
         restart: always
         ports:
-            - "20300:3306"
+            - "20301:3306"
         volumes:
             - "./config/mysql/conf.d/bitrix.conf:/etc/mysql/conf.d/bitrix.conf"
         environment:
