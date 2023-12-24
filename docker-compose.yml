@@ -1,24 +1,25 @@
-version: "3.7"
 services:
-    nginx:
+    nginx.bitrix:
+        container_name: "nginx.bitrix"
         build: ./config/nginx
-        restart: always
         ports:
             - "20101:80"
         volumes:
             - "./www:/www"
             - "./config/nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "./config/nginx/conf.d/bitrix.conf:/etc/nginx/conf.d/bitrix.conf"
-    php-fpm:
+
+    php-fpm.bitrix:
+        container_name: "php-fpm.bitrix"
         build: ./config/php-fpm
-        restart: always
         volumes:
             - "./www:/www"
             - "./config/php-fpm/php/php.ini:/usr/local/etc/php/php.ini"
             - "./config/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf"
-    mysql:
+
+    mysql.bitrix:
+        container_name: "mysql.bitrix"
         build: ./config/mysql
-        restart: always
         ports:
             - "20301:3306"
         volumes:
@@ -27,13 +28,13 @@ services:
             MYSQL_ROOT_PASSWORD: 123456
             MYSQL_DATABASE: "bitrix"
     # Uncomment to enable Memcached service
-    # memcached:
+    # mysql.bitrix:
+    #     container_name: "mysql.bitrix"
     #     build: ./config/memcached
-    #     restart: always
-    # Uncomment to enable Elasticsear service
-    # elasticsearch:
+    # Uncomment to enable Elasticsearch service
+    # elasticsearch.bitrix:
+    #     container_name: "elasticsearch.bitrix"
     #     build: ./config/elasticsearch
-    #     restart: always
     #     ports:
     #         - "20501:9200"
     #         - "20502:9300"
